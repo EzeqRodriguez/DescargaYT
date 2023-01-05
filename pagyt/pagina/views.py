@@ -12,11 +12,11 @@ def audio_video(request):
     
         link = request.POST['link']
         
-        yt = YouTube(link)
+        vid = YouTube(link)
         
-        ys = yt.streams.get_highest_resolution()
+        descarga = vid.streams.get_highest_resolution()
         
-        ys.download()
+        descarga.download()
         
         return render(request, 'pagina/index.html')
     return render(request, 'pagina/index.html')
@@ -30,11 +30,11 @@ def audio(request):
     
         linkA = request.POST['linkA']
         
-        yt = YouTube(linkA)
+        aud = YouTube(linkA)
         
-        ys = yt.streams.get_audio_only()
+        descarga = aud.streams.get_audio_only()
         
-        ys.download()
+        descarga.download()
         
         return render(request, 'pagina/audio.html',)
     return render(request, 'pagina/audio.html')
